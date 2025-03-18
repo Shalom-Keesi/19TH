@@ -1,0 +1,217 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            /* font-family: 'Playfair Display', serif; */
+            background-color: #f5f5f5;
+            padding: 20px;
+            background-image: url('/assets/images/breathe.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+
+
+        }
+        
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .grid-layout {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        /* Side columns */
+        .side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 25%;
+        }
+        
+        /* Circular grid items */
+        .grid-item-circle {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .grid-item-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .grid-item-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Center slideshow */
+        .slideshow-container {
+            width: 50%;
+            height: 850px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .slideshow-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .slideshow-container img.active {
+            opacity: 1;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: #023020;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            position: relative;
+            color: white;
+        }   
+        
+        
+        .poetry-content{
+            font-family: "Delius Swash Caps", cursive;
+        }
+        .easter-egg-modal{
+            font-family: 'Great Vibes', cursive;
+        }
+
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .thought {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.1rem;
+            text-align: center;
+            padding: 15px;
+            border: 2px dashed white;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 60%;
+            color: white;
+        }
+
+        .title{
+            text-align: center;
+        }
+
+        .spotify-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 50%; /* Perfect circle */
+            overflow: hidden;
+            width: 310px; /* Significantly increased size */
+            height: 310px; /* Same as width for a perfect circle */
+            background-color: #9d0e29; /* Black background to blend with Spotify player */
+        }
+        
+        .spotify-container iframe {
+            width: 320px; /* Much wider than container */
+            height: 320px; /* Much taller than container */
+            margin-left: -15px; /* Adjusted to center the play button */
+            margin-top: 15px; /* Adjusted to center the play button */
+            border: none;
+        }
+
+        .spotify-container:hover {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(29, 185, 84, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .grid-layout {
+                flex-direction: column;
+            }
+            
+            .side-column {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .grid-item-circle {
+                width: 45%;
+                max-width: 180px;
+            }
+            
+            .slideshow-container {
+                width: 100%;
+                order: -1;
+                height: 350px;
+                margin-bottom: 20px;
+            }
+        }

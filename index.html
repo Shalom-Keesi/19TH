@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 💌</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="landing-page">
+    <div class="envelope">
+        <div class="letter">
+            <h1 id="landing-title">Happiest of Birthdays, My Love 💋</h1>
+            <p id="landing-text">A special likkle something, just for you💋.</p>
+            <button id="landing-button">Click Me</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const envelope = document.querySelector(".envelope");
+            const button = document.querySelector("#landing-button");
+    
+            if (!envelope || !button) {
+                console.error("Envelope or button not found!");
+                return;
+            }
+    
+            console.log("Envelope and button found! Ready to add event listener.");
+    
+            // Clicking the envelope only opens it (No redirect)
+            envelope.addEventListener("click", function () {
+                console.log("Envelope clicked!"); 
+                envelope.classList.add("opened");
+            });
+    
+            // Clicking the button triggers the page transition
+            button.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevent triggering envelope click
+                console.log("Button clicked! Redirecting...");
+                
+                setTimeout(() => {
+                    window.location.href = 'main.html';
+                }, 1000); // Only redirects when button is clicked
+            });
+        });
+    </script>
+    </body>
+</html>
